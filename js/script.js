@@ -3,7 +3,7 @@ const imgArray = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/0
 
 
 //export the div "item" from DOM
-const container = document.querySelector(".item")
+const container = document.querySelector(".carousel-container")
 
 
 
@@ -31,6 +31,26 @@ imgItemExported[0].classList.remove("hidden")
 const nextBtn = document.querySelector(".btn-down")
 const prevBtn = document.querySelector(".btn-up")
 
+//export the preview div
+const previewContainer = document.querySelector(".preview");
+
+for(let index = 0; index < imgArray.length; index++){
+    const thisElement = imgArray[index];
+
+    const imgPreviewItem = document.createElement("div");
+    imgPreviewItem.classList.add("preview-img");
+    
+    previewContainer.append(imgPreviewItem)
+
+    const imgPreviewElement = `<img src="${thisElement}" alt="Immagine del carosello">`
+    
+    imgPreviewItem.innerHTML = imgPreviewElement
+} 
+
+const imgPreviewItemExported = document.getElementsByClassName("preview-img")
+console.log(previewContainer);
+imgPreviewItemExported[0].classList.add("active")
+
 //create an element for count the index of imgItemExported
 let indexNumber = 0;
 
@@ -42,18 +62,21 @@ nextBtn.addEventListener("click", function() {
     if(indexNumber < (imgItemExported.length - 1)){
 
         imgItemExported[indexNumber].classList.add("hidden");
+        imgPreviewItemExported[indexNumber].classList.remove("active")
 
         indexNumber++
 
         imgItemExported[indexNumber].classList.remove("hidden");
-
+        imgPreviewItemExported[indexNumber].classList.add("active")
     }  else {
 
         imgItemExported[indexNumber].classList.add("hidden");
+        imgPreviewItemExported[indexNumber].classList.remove("active")
 
         indexNumber = 0
 
         imgItemExported[indexNumber].classList.remove("hidden");
+        imgPreviewItemExported[indexNumber].classList.add("active")
     }
     
     
@@ -64,17 +87,22 @@ nextBtn.addEventListener("click", function() {
 prevBtn.addEventListener("click", function(){
 
     if(indexNumber > 0){
+
         imgItemExported[indexNumber].classList.add("hidden");
+        imgPreviewItemExported[indexNumber].classList.remove("active")
     
         indexNumber--
     
         imgItemExported[indexNumber].classList.remove("hidden");
+        imgPreviewItemExported[indexNumber].classList.add("active")
     } else {
        
         imgItemExported[indexNumber].classList.add("hidden");
+        imgPreviewItemExported[indexNumber].classList.remove("active")
 
         indexNumber = imgItemExported.length - 1
 
         imgItemExported[indexNumber].classList.remove("hidden");
+        imgPreviewItemExported[indexNumber].classList.add("active")
     }
 })
