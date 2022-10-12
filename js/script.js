@@ -25,7 +25,22 @@ for(let i = 0; i < imgArray.length; i++){
 //export the 5 div created before
 const imgItemExported = document.getElementsByClassName("img-item")
 console.log(imgItemExported);
+imgItemExported[0].classList.remove("hidden")
 
 //export the 2 buttons
 const nextBtn = document.querySelector(".btn-down")
 const prevBtn = document.querySelector(".btn-up")
+
+//create an element for count the index of imgItemExported
+let indexNumber = 0;
+
+//create an event on click
+nextBtn.addEventListener("click", function() {
+
+        imgItemExported[indexNumber].classList.add("hidden");
+
+        indexNumber++
+        console.log(indexNumber);
+
+        imgItemExported[indexNumber].classList.remove("hidden");
+})
