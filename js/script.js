@@ -44,15 +44,15 @@ nextBtn.addEventListener("click", function() {
         imgItemExported[indexNumber].classList.add("hidden");
 
         indexNumber++
-        console.log(indexNumber);
 
         imgItemExported[indexNumber].classList.remove("hidden");
 
     }  else {
 
         imgItemExported[indexNumber].classList.add("hidden");
+
         indexNumber = 0
-        console.log(indexNumber);
+
         imgItemExported[indexNumber].classList.remove("hidden");
     }
     
@@ -67,8 +67,14 @@ prevBtn.addEventListener("click", function(){
         imgItemExported[indexNumber].classList.add("hidden");
     
         indexNumber--
-        console.log(indexNumber);
     
+        imgItemExported[indexNumber].classList.remove("hidden");
+    } else {
+       
+        imgItemExported[indexNumber].classList.add("hidden");
+
+        indexNumber = imgItemExported.length - 1
+
         imgItemExported[indexNumber].classList.remove("hidden");
     }
 })
