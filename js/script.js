@@ -37,10 +37,13 @@ let indexNumber = 0;
 //create an event on click
 nextBtn.addEventListener("click", function() {
 
+    if(indexNumber < (imgItemExported.length - 1)){
         imgItemExported[indexNumber].classList.add("hidden");
 
         indexNumber++
         console.log(indexNumber);
 
         imgItemExported[indexNumber].classList.remove("hidden");
+    }
+       
 })
