@@ -32,7 +32,7 @@ const nextBtn = document.querySelector(".btn-down")
 const prevBtn = document.querySelector(".btn-up")
 
 //export the preview div
-const previewContainer = document.querySelector(".preview");
+const previewContainer = document.querySelector(".preview-images");
 
 for(let index = 0; index < imgArray.length; index++){
     const thisElement = imgArray[index];
