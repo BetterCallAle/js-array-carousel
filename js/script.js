@@ -34,17 +34,29 @@ const prevBtn = document.querySelector(".btn-up")
 //create an element for count the index of imgItemExported
 let indexNumber = 0;
 
+
+
 //create an event on click for nextBtn
 nextBtn.addEventListener("click", function() {
 
     if(indexNumber < (imgItemExported.length - 1)){
+
         imgItemExported[indexNumber].classList.add("hidden");
 
         indexNumber++
         console.log(indexNumber);
 
         imgItemExported[indexNumber].classList.remove("hidden");
+
+    }  else {
+
+        imgItemExported[indexNumber].classList.add("hidden");
+        indexNumber = 0
+        console.log(indexNumber);
+        imgItemExported[indexNumber].classList.remove("hidden");
     }
+    
+    
        
 })
 
