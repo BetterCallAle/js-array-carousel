@@ -5,6 +5,7 @@ const imgArray = ["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/0
 //export the div "item" from DOM
 const container = document.querySelector(".carousel-container")
 
+const previewContainer = document.querySelector(".preview-images");
 
 
 //create 5 div elements with for cycle
@@ -20,6 +21,15 @@ for(let i = 0; i < imgArray.length; i++){
     const imgElement = `<img src="${thisImg}" alt="Immagine del carosello">`
     
     imgItem.innerHTML = imgElement
+
+    const imgPreviewItem = document.createElement("div");
+    imgPreviewItem.classList.add("preview-img");
+    
+    previewContainer.append(imgPreviewItem)
+
+    const imgPreviewElement = `<img src="${thisImg}" alt="Immagine del carosello">`
+    
+    imgPreviewItem.innerHTML = imgPreviewElement
 }
 
 //export the 5 div created before
@@ -30,22 +40,6 @@ imgItemExported[0].classList.remove("hidden")
 //export the 2 buttons
 const nextBtn = document.querySelector(".btn-down")
 const prevBtn = document.querySelector(".btn-up")
-
-//export the preview div
-const previewContainer = document.querySelector(".preview-images");
-
-for(let index = 0; index < imgArray.length; index++){
-    const thisElement = imgArray[index];
-
-    const imgPreviewItem = document.createElement("div");
-    imgPreviewItem.classList.add("preview-img");
-    
-    previewContainer.append(imgPreviewItem)
-
-    const imgPreviewElement = `<img src="${thisElement}" alt="Immagine del carosello">`
-    
-    imgPreviewItem.innerHTML = imgPreviewElement
-} 
 
 const imgPreviewItemExported = document.getElementsByClassName("preview-img")
 console.log(previewContainer);
@@ -89,7 +83,7 @@ prevBtn.addEventListener("click", function(){
         indexNumber--
     
     } else {
-        
+
         indexNumber = imgItemExported.length - 1
 
     }
