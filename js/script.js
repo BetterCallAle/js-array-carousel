@@ -7,7 +7,6 @@ const container = document.querySelector(".carousel-container")
 
 const previewContainer = document.querySelector(".preview-images");
 
-
 //create 5 div elements with for cycle
 for(let i = 0; i < imgArray.length; i++){
     const thisImg = imgArray[i];
@@ -37,18 +36,16 @@ const imgItemExported = document.getElementsByClassName("img-item")
 console.log(imgItemExported);
 imgItemExported[0].classList.remove("hidden")
 
-//export the 2 buttons
-const nextBtn = document.querySelector(".btn-down")
-const prevBtn = document.querySelector(".btn-up")
-
 const imgPreviewItemExported = document.getElementsByClassName("preview-img")
 console.log(previewContainer);
 imgPreviewItemExported[0].classList.add("active")
 
+//export the 2 buttons
+const nextBtn = document.querySelector(".btn-down")
+const prevBtn = document.querySelector(".btn-up")
+
 //create an element for count the index of imgItemExported
 let indexNumber = 0;
-
-
 
 //create an event on click for nextBtn
 nextBtn.addEventListener("click", function() {
@@ -91,3 +88,19 @@ prevBtn.addEventListener("click", function(){
     imgItemExported[indexNumber].classList.remove("hidden");
     imgPreviewItemExported[indexNumber].classList.add("active")
 })
+
+//add the switch by click on a thumb
+
+for(let index = 0; index < imgPreviewItemExported.length; index++){
+    const thisThumb = imgPreviewItemExported[index];
+    thisThumb.addEventListener("click", function() {
+        
+        imgItemExported[indexNumber].classList.add("hidden");
+        imgPreviewItemExported[indexNumber].classList.remove("active")
+
+        indexNumber = index;
+
+        imgItemExported[indexNumber].classList.remove("hidden");
+        imgPreviewItemExported[indexNumber].classList.add("active")
+    })
+}
