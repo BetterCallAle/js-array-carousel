@@ -59,50 +59,41 @@ let indexNumber = 0;
 //create an event on click for nextBtn
 nextBtn.addEventListener("click", function() {
 
-    if(indexNumber < (imgItemExported.length - 1)){
+    imgItemExported[indexNumber].classList.add("hidden");
+    imgPreviewItemExported[indexNumber].classList.remove("active")
 
-        imgItemExported[indexNumber].classList.add("hidden");
-        imgPreviewItemExported[indexNumber].classList.remove("active")
+    if(indexNumber < (imgItemExported.length - 1)){
 
         indexNumber++
 
-        imgItemExported[indexNumber].classList.remove("hidden");
-        imgPreviewItemExported[indexNumber].classList.add("active")
     }  else {
-
-        imgItemExported[indexNumber].classList.add("hidden");
-        imgPreviewItemExported[indexNumber].classList.remove("active")
 
         indexNumber = 0
 
-        imgItemExported[indexNumber].classList.remove("hidden");
-        imgPreviewItemExported[indexNumber].classList.add("active")
     }
     
     
+    imgItemExported[indexNumber].classList.remove("hidden");
+    imgPreviewItemExported[indexNumber].classList.add("active")
        
 })
 
 //create an event on click for prevBtn
 prevBtn.addEventListener("click", function(){
 
+    imgItemExported[indexNumber].classList.add("hidden");
+    imgPreviewItemExported[indexNumber].classList.remove("active")
+
     if(indexNumber > 0){
 
-        imgItemExported[indexNumber].classList.add("hidden");
-        imgPreviewItemExported[indexNumber].classList.remove("active")
-    
         indexNumber--
     
-        imgItemExported[indexNumber].classList.remove("hidden");
-        imgPreviewItemExported[indexNumber].classList.add("active")
     } else {
-       
-        imgItemExported[indexNumber].classList.add("hidden");
-        imgPreviewItemExported[indexNumber].classList.remove("active")
-
+        
         indexNumber = imgItemExported.length - 1
 
-        imgItemExported[indexNumber].classList.remove("hidden");
-        imgPreviewItemExported[indexNumber].classList.add("active")
     }
+
+    imgItemExported[indexNumber].classList.remove("hidden");
+    imgPreviewItemExported[indexNumber].classList.add("active")
 })
